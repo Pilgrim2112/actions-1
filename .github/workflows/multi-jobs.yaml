@@ -1,4 +1,4 @@
-name: multi jobs orkflow
+name: upload et download des artifact
 
 on: push
 
@@ -41,6 +41,6 @@ jobs:
             name: mon-dragon
         - name: Depoy
           run: |
-            echo "Deployment en cours...."
+            echo "Deployment en cours........."
             cat dragon.txt
             echo "Deployment terminee avec success"
