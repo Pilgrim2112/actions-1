@@ -1,4 +1,4 @@
-name: Multi Workflow
+name: multi jobs orkflow
 
 on: push
 
@@ -15,7 +15,6 @@ jobs:
         - name: Sleep for 30 seconds
           run: sleep 30
 
-jobs:
     test_job02:
         runs-on: ubuntu-latest
         steps:
@@ -25,7 +24,6 @@ jobs:
         - name: Test File Exists
           run: grep -i "dragon" dragon.txt
 
-jobs:
     deploy_job_3:
         runs-on: ubuntu-latest
         steps:
