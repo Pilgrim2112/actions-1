@@ -1,0 +1,25 @@
+name: Generate ASCII Artwork
+
+on: push
+
+jobs:
+    deuxieme_job:
+         runs-on: ubuntu-latest
+         steps:
+         - name: Checkout-repo
+           uses: actions/checkout@v6
+        
+         - name: installation de Cowsay
+           run: sudo apt install cowsay -y
+          
+         - name: Execution de cowsay CMD
+           run: comwsay -f dragon "Bonjour je suis le DRAGON" >> dragon.txt
+
+         - name: Verifier le fichier dragon
+           run: grep -i "dragon" dragon.txt
+
+         - name: Lire le fichier dragon
+           run: cat dragon.txt
+
+         - name: Checkout Repo files
+           run: ls
