@@ -1,4 +1,4 @@
-name: muti-jobs
+name: upload et download des artifact
 
 on: push
 
@@ -12,18 +12,33 @@ jobs:
         - name: Execute Cowsay CMD
           run: cowsay -f dragon "Bonjour, Je suis le DRAGON" >> dragon.txt
         
+        - name: Upload Artifact 
+          uses: actions/upload-artifact@v7
+          with:
+            name: mon-dragon
+            path: ./dragon.txt
+        
 
     test_job02:
         needs: build_job01
         runs-on: ubuntu-latest
         steps:
-        - name: Sleep for 10 seconds
-          run: sleep 10
+        - name: Download Artifact 
+          uses: actions/download-artifact@v8
+          with:
+            name: mon-dragon     
+        
+        - name: Test File Exists
+          run: grep -i "dragon" dragon.txt
 
     deploy_job_3:
         needs: test_job02
         runs-on: ubuntu-latest
         steps:
+        - name: Download Artifact 
+          uses: actions/download-artifact@v8
+          with:
+            name: mon-dragon
         - name: Read file
           run: cat dragon.txt
         
