@@ -39,8 +39,8 @@ jobs:
           uses: actions/download-artifact@v8
           with:
             name: mon-dragon
-        - name: Depoy
-          run: |
-            echo "Deployment en cours........."
-            cat dragon.txt
-            echo "Deployment terminee avec success"
+        - name: Read file
+          run: cat dragon.txt
+        
+        - name: Deploy
+          run: echo deploying ......
