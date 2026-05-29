@@ -1,0 +1,16 @@
+name: Execution du scrip dans un  Workfow
+
+on: push
+
+jobs:
+    mon_troiieme_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repo
+          uses: actions/checkout@v6
+
+        - name: List repo files
+          run: ls -ltra
+
+        - name: execution shell script
+          run: ./ascii-script.sh
