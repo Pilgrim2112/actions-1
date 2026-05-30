@@ -13,7 +13,7 @@ jobs:
            run: sudo apt install cowsay -y
           
          - name: Execution de cowsay CMD
-           run: cowsay -f dragon "Bonjour je suis le DRAGON" >> dragon.txt
+           run: cowsay -f dragon "Bonjour je suis le DRAGON le plus dangerer" >> dragon.txt
 
          - name: Verifier le fichier dragon
            run: grep -i "dragon" dragon.txt
@@ -22,4 +22,4 @@ jobs:
            run: cat dragon.txt
 
          - name: Checkout Repo files
-           run: ls -ltra
+           run: ls -ltrh
